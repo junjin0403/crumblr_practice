@@ -4,14 +4,37 @@
     <title>Crumblr</title>
     <%= csrf_meta_tags %>
 
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  	<%= link_to "Home", "/" %>
-  	<%= link_to "About", "/" %>
+  	<div class="container">
+  		<div class="page-header">
+   			<ul class="nav nav-pills pull-right">
+  				<li>
+  					<%= link_to "Home", "/" %>
+  				</li>
+	
+  				<li>
+  					<%= link_to "About", "/" %>
+  				</li>
+  			</ul>
 
-    <%= yield %>
+  			<h1>
+  				<%= link_to 'crumblr', '/' %>
+  				<small>// home baked goodness</small>
+  			</h1>
+  		</div>
+			
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+    			<%= yield %>
+    		</div>
+    	</div>
+	</div>
   </body>
 </html>
