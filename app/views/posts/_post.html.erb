@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<p>
+			<strong>Title:</strong>
+			<%= link_to post.title, post %>
+		</p>
+	</div>
+
+	<div class="panel-body">
+		<p>
+			<strong>Content:</strong>
+			<%= simple_format post.content %>
+		</p>
+		<p>
+			<small>
+				<%= post.created_at.to_formatted_s(:long) %>
+			</small>
+		</p>
+	</div>
+</div>
