@@ -1,17 +1,21 @@
 <div class="panel panel-default">
-	<div class="panel-heading">
-		<p>
-			<strong>Title:</strong>
+	<div class="panel-heading" style="margin: 0; padding: 20px">
+		<h4 style="margin: 0">
+			<!--<strong>Title:</strong>-->
 			<%= link_to post.title, post %>
-		</p>
+		</h4>
 	</div>
 
 	<div class="panel-body">
 		<p>
 			<strong>Content:</strong>
-			<%= simple_format post.content %>
+			<% if post.kind == 'image' %>
+				<%= image_tag post.content, style: 'width: 100%' %>
+			<% else %>
+				<%= simple_format post.content %>
+			<% end %>
 		</p>
-		<p>
+		<p class="text-muted">
 			<small>
 				<%= post.created_at.to_formatted_s(:long) %>
 			</small>
