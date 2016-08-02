@@ -1,5 +1,11 @@
 <div class="panel panel-default">
-	<div class="panel-heading" style="margin: 0; padding: 20px">
+	<div class="panel-heading" style="margin: 0; padding: 20px; position: relative">
+		<div class="pull-right">
+			<%= form_for(Heart.new) do |f| %>
+				<%= f.hidden_field :post_id, value: post.id %>
+				<%= f.submit "♥", class: 'btn btn-danger', style: 'position: absolute; top: 50%; transform: translateY(-50%); right: 15px' %>
+			<% end %>
+		</div>
 		<h4 style="margin: 0">
 			<!--<strong>Title:</strong>-->
 			<%= link_to post.title, post %>
@@ -18,6 +24,10 @@
 		<p class="text-muted">
 			<small>
 				<%= post.created_at.to_formatted_s(:long) %>
+			</small>
+
+			<small class="pull-right">
+				<%= post.hearts.count %> hearts
 			</small>
 		</p>
 	</div>
